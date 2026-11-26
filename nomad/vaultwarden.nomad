@@ -1,4 +1,8 @@
 
+variable "admin_token" {
+  type      = string
+}
+
 job "vaultwarden" {
   datacenters = ["dc1"]
   type        = "service"
@@ -27,9 +31,10 @@ job "vaultwarden" {
       }
 
       env {
-        DOMAIN         = "https://vaultwarden.local"
-        SIGNUPS_ALLOWED = "false"
+        DOMAIN              = "https://vaultwarden.local"
+        SIGNUPS_ALLOWED     = "false"
         INVITATIONS_ALLOWED = "false"
+        ADMIN_TOKEN         = var.admin_token
       }
 
       volume_mount {
@@ -45,3 +50,4 @@ job "vaultwarden" {
     }
   }
 }
+
