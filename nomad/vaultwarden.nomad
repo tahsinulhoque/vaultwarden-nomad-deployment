@@ -28,7 +28,8 @@ job "vaultwarden" {
 
       env {
         DOMAIN         = "https://vaultwarden.local"
-        SIGNUPS_ALLOWED = "true"
+        SIGNUPS_ALLOWED = "false"
+        INVITATIONS_ALLOWED = "false"
       }
 
       volume_mount {
